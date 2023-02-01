@@ -1,0 +1,22 @@
+.ListProducts{
+    display: flex;
+    flex-direction: row;
+    // flex: 0 0 33.333333%;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: 2rem auto;
+    gap:1rem;
+
+    // max-width: 15rem;
+    padding: 0 20px;
+    margin: 3rem;
+    
+}
+
+.header-left{
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+
+}
