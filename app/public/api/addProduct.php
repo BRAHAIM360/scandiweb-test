@@ -9,9 +9,11 @@ require_once('../../vendor/autoload.php');
 
 use App\Models\Product;
 use App\Models\Disc;
+use App\Models\Book;
 
 
 use App\Database\Database;
+use App\Models\Furniture;
 
 //Instantiate DB & connect
 $database = new Database();
@@ -51,13 +53,21 @@ if (!$data->price) {
 }
 
 
-if ($data->size) {
+if (property_exists($data, 'size')) {
+    echo "size";
     $Disc = new Disc($db);
-    // $Disc->setSku($data->sku);
-    // $Disc->setName($data->name);
-    // $Disc->setPrice($data->price);
-    // $Disc->setSize($data->size);
-
-
     $Disc->add($data);
+    return;
+}
+
+if (property_exists($data, 'weight')) {
+    $Book = new Book($db);
+    $Book->add($data);
+    return;
+}
+
+if (property_exists($data, 'height') && property_exists($data, 'width') && property_exists($data, 'length')) {
+    $Furniture = new Furniture($db);
+    $Furniture->add($data);
+    return;
 }
