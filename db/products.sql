@@ -36,18 +36,18 @@ CREATE TABLE `products` (
   `height` double DEFAULT NULL,
   `width` double DEFAULT NULL,
   `length` double DEFAULT NULL,
-  `type` varchar(255) NOT NULL
+  `productType` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`sku`, `name`, `price`, `size`, `weight`, `height`, `width`, `length`, `type`) VALUES
-('', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'book'),
+INSERT INTO `products` (`sku`, `name`, `price`, `size`, `weight`, `height`, `width`, `length`, `productType`) VALUES
+('SD34F', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'book'),
 ('DRZEE43', 'Office table', 200, NULL, NULL, 22, 44, 12, 'fourniture'),
 ('DRZEE45', 'CHAIR', 200, NULL, NULL, 22, 4, 12, 'fourniture'),
-('ISBN34534', 'Harry Portter', 200, NULL, 1.2, NULL, NULL, NULL, ''),
+('ISBN34534', 'Harry Portter', 200, NULL, 1.2, NULL, NULL, NULL, 'book'),
 ('JVC2012', 'Disk', 100, 450, NULL, NULL, NULL, NULL, 'dvd'),
 ('JVC22025', 'Disk', 200, 550, NULL, NULL, NULL, NULL, 'dvd'),
 ('TSSDZ', 'disk', 1000, 542, NULL, NULL, NULL, NULL, 'dvd');
