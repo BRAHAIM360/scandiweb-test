@@ -18,7 +18,7 @@ services:
   db:
     image: mysql:8.0
     volumes:
-      - "./db:/docker-entrypoint-initdb.d"  
+      - "./db:/docker-entrypoint-initdb.d/:rw"  
     # ports:
     #   - "3306:3306"
     restart: unless-stopped
