@@ -17,23 +17,26 @@ class Book extends Product
     return $this->weight;
   }
 
-  public function add($request)
+  public function add($body)
   {
     //create query
     $query = 'INSERT INTO ' . $this->tableName . ' SET 
         sku = :sku, 
         name = :name, 
         price = :price, 
-        weight = :weight ';
+        weight = :weight,
+        productType = "book"
+         ';
 
     //prepare statement
     $stmt = $this->conn->prepare($query);
 
     //clean data
-    $this->sku = htmlspecialchars(strip_tags($request['sku']));
-    $this->name = htmlspecialchars(strip_tags($request['name']));
-    $this->price = htmlspecialchars(strip_tags($request['price']));
-    $this->weight = htmlspecialchars(strip_tags($request['weight']));
+    $this->sku = htmlspecialchars(strip_tags($body->sku));
+    $this->name = htmlspecialchars(strip_tags($body->name));
+    $this->price = htmlspecialchars(strip_tags($body->price));
+    $this->weight = htmlspecialchars(strip_tags($body->weight));
+
 
     //bind data
     $stmt->bindParam(':sku', $this->sku);

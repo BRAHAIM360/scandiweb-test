@@ -14,7 +14,7 @@ class Product
   protected $sku;
   protected $name;
   protected $price;
-  // private $type;
+  protected $productType;
 
 
   // public function __construct($sku, $name, $price, $type, $size=null, $weight=null, $height=null, $length=null, $width=null)
@@ -79,20 +79,21 @@ class Product
     return $this->price;
   }
 
-  // public function setType($type)
-  // {
-  //   $this->type = $type;
-  // }
+  public function setType($productType)
+  {
+    $this->productType = $productType;
+  }
 
-  // public function getType()
-  // {
-  //   return $this->type;
-  // }
+  public function getproductType()
+  {
+    return $this->productType;
+  }
 
   protected function executStatment($stmt)
   {
     try {
       $stmt->execute();
+      header(http_response_code(201));
       echo json_encode(
         array('message' => 'Record created')
       );

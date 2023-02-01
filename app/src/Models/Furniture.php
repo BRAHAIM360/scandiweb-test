@@ -48,7 +48,9 @@ class Furniture extends Product
         price = :price,
         width = :width,
         height = :height,
-        length = :length ';
+        length = :length,
+        productType = "furniture"
+        ';
 
     //prepare statement
     $stmt = $this->conn->prepare($query);

@@ -27,23 +27,25 @@ class Disc extends Product
   }
 
 
-  public function add($request)
+  public function add($body)
   {
     //create query
     $query = 'INSERT INTO ' . $this->tableName . ' SET
         sku = :sku,
         name = :name,
         price = :price,
-        size = :size ';
+        size = :size 
+        productType = "disc" 
+        ';
 
     //prepare statement
     $stmt = $this->conn->prepare($query);
 
     //clean data
-    $this->sku = htmlspecialchars(strip_tags($request->sku));
-    $this->name = htmlspecialchars(strip_tags($request->name));
-    $this->price = htmlspecialchars(strip_tags($request->price));
-    $this->size = htmlspecialchars(strip_tags($request->size));
+    $this->sku = htmlspecialchars(strip_tags($body->sku));
+    $this->name = htmlspecialchars(strip_tags($body->name));
+    $this->price = htmlspecialchars(strip_tags($body->price));
+    $this->size = htmlspecialchars(strip_tags($body->size));
 
     //bind data
     $stmt->bindParam(':sku', $this->sku);
