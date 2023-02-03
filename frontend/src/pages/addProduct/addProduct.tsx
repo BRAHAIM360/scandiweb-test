@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { MButton } from '../../components/button';
 import { Footer } from '../../components/footer';
@@ -34,8 +34,38 @@ export const AddProduct = () => {
     const [buttonDisabel, setbuttonDisabel] = useState(true)
 
 
-    const [selectedIndex, setSelectedIndex] = useState(1)
+    const [selectedIndex, setSelectedIndex] = useState(2)
     const options = ["DISC", "BOOK", "FURNITURE"]
+    useEffect(() => {
+        if (sku && name && price) {
+            if (selectedIndex === 0 && size) {
+                setbuttonDisabel(false)
+            } else if (selectedIndex === 1 && weight) {
+                setbuttonDisabel(false)
+            } else if (selectedIndex === 2 && height && width && length) {
+                setbuttonDisabel(false)
+            } else {
+                setbuttonDisabel(true)
+            }
+
+        } else {
+            setbuttonDisabel(true)
+        }
+
+        !sku ? setSkuError("SKU should not be empty") : setSkuError("")
+        !name ? setNameError("Name should not be empty") : setNameError("")
+        !price ? setPriceError("Price should not be empty") : setPriceError("")
+        !size ? setSizeError("Size should not be empty") : setSizeError("")
+        !weight ? setWeightError("Weight should not be empty") : setWeightError("")
+        !height ? setHeightError("Height should not be empty") : setHeightError("")
+        !width ? setWidthError("Width should not be empty") : setWidthError("")
+        !length ? setLengthError("Length should not be empty") : setLengthError("")
+    }, [sku, name, price, size, weight, height, width, length, selectedIndex])
+
+
+
+
+
     return (
         <>
             <Header>
@@ -51,25 +81,34 @@ export const AddProduct = () => {
                 <InputText errorText={skuError} type='text' label="SKU :" value={sku} onChange={setSku} />
                 <InputText errorText={nameError} type='text' label="Name :" value={name} onChange={setName} />
                 <InputText errorText={priceError} type='number' label="Price :" value={price} onChange={setPrice} />
-                <SelectBox options={options} selected={selectedIndex} setSelected={setSelectedIndex} />
+                <SelectBox key="select" options={options} selected={selectedIndex} setSelected={setSelectedIndex} />
                 {
-                    selectedIndex === 0 && <InputText errorText={sizeError} type='number' label="Size :" value={size} onChange={setSize} />
+                    selectedIndex === 0 &&
+                    <>
+                        <InputText key="Size" errorText={sizeError} type='number' label="Size :" value={size} onChange={setSize} />
+                        <p>Please, provide size in MB</p>
+
+                    </>
                 }
                 {
-                    selectedIndex === 1 && <InputText errorText={weightError} type='number' label="Weight :" value={weight} onChange={setWeight} />
+                    selectedIndex === 1 &&
+                    <>
+                        <InputText key="Weight" errorText={weightError} type='number' label="Weight :" value={weight} onChange={setWeight} />
+                        <p>Please provide Weight in KG </p>
+                    </>
                 }
                 {
                     selectedIndex === 2 &&
                     <>
-                        <InputText errorText={heightError} type='number' label="Height :" value={height} onChange={setHeight} />
-                        <InputText errorText={widthError} type='number' label="Width :" value={width} onChange={setWidth} />
-                        <InputText errorText={lengthError} type='number' label="Length :" value={length} onChange={setLength} />
+                        <InputText key="Height" errorText={heightError} type='number' label="Height :" value={height} onChange={setHeight} />
+                        <InputText key="Width" errorText={widthError} type='number' label="Width :" value={width} onChange={setWidth} />
+                        <InputText key="Length" errorText={lengthError} type='number' label="Length :" value={length} onChange={setLength} />
+                        <p>Please provide dimensions in HxWxL in CM</p>
+
                     </>
                 }
 
             </div>
-
-
             <Footer />
         </>
     );

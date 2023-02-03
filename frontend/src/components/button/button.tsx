@@ -9,7 +9,7 @@ interface IButton {
 
 export const MButton = (props: IButton) => {
     return (
-        <button type="button" className={props.disbaled ? 'button' : "button disabled"} onClick={props.onClick}>{props.name}</button>
+        <button type="button" className={props.disbaled ? 'button disabled' : "button"} onClick={props.onClick}>{props.name}</button>
     );
 }
 

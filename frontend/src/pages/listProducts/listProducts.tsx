@@ -57,15 +57,14 @@ const products = [{
 
 export const ListProducts = () => {
     const onSubmitApply = () => {
-
+        if (selectedIndex === 1) {
+            window.location.href = "/product/new"
+        }
     }
     const [selectedIndex, setSelectedIndex] = useState(0)
     const options = ["MASS DELETE", "ADD"]
 
-    useEffect(() => {
-        console.log(selectedIndex)
 
-    }, [selectedIndex])
 
     return (
         <>
