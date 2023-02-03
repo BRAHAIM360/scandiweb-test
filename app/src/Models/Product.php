@@ -114,4 +114,14 @@ class Product
       return false;
     }
   }
+
+  //delete a list of products 
+  public function deleteProduct()
+  {
+    $query = 'DELETE FROM ' . $this->tableName . ' WHERE sku = :sku';
+    $stmt = $this->conn->prepare($query);
+    $this->sku = htmlspecialchars(strip_tags($this->sku));
+    $stmt->bindParam(':sku', $this->sku);
+    return  $stmt->execute();
+  }
 }
