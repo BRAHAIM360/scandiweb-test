@@ -1,14 +1,15 @@
 import React from 'react';
 import './styles.scss';
 
-interface IHeader {
+interface IButton {
     name: string;
     onClick: () => void;
+    disbaled?: boolean;
 }
 
-export const MButton = (props: IHeader) => {
+export const MButton = (props: IButton) => {
     return (
-        <button type="button" className='button' onClick={props.onClick}>{props.name}</button>
+        <button type="button" className={props.disbaled ? 'button' : "button disabled"} onClick={props.onClick}>{props.name}</button>
     );
 }
 
