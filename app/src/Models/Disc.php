@@ -34,7 +34,7 @@ class Disc extends Product
         sku = :sku,
         name = :name,
         price = :price,
-        size = :size 
+        size = :size, 
         productType = "disc" 
         ';
 
