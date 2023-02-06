@@ -19,7 +19,7 @@ for production
 
 for development you need to also have
 
-- [Nodejs](https://nodejs.org/) version 14 or higher (we recommend using [nvm](https://github.com/nvm-sh/nvm))
+- [Nodejs](https://nodejs.org/) version 14 or higher
 - [Yarn](https://yarnpkg.com/) version 1.4.2 or higher
 
 ### Run it locally
