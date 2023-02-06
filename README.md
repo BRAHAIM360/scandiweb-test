@@ -1,6 +1,7 @@
 # Scandiweb Test Assignment
 
 Scandiweb Logo
+![SCANDIWEB](/frontend/public/logo.png)
 
 ## Meta
 
@@ -58,17 +59,6 @@ yarn start
 ```
 
 The frontend will be available at <http://localhost:3000>
-
-## Contributing
-
-If you use VSCode, please make sure to have a `.vscode/settings.json` file with the content:
-
-```json
-{
-  "prettier.configPath": "packages/tooling/.prettierrc",
-  "eslint.options": { "overrideConfigFile": "packages/tooling/.eslintrc.json" }
-}
-```
 
 ## License
 
