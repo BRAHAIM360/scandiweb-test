@@ -19,4 +19,17 @@
         background-color: rgba(0,0,0,0.5);
         margin: 0;
     }
+    img{
+        width: 4.5rem;
+        height: 4.5rem;
+        object-fit: cover;
+    }
+}
+
+//media query
+@media screen and (max-width: 1068px) {
+    img{
+        display: none;
+
+    }
 }

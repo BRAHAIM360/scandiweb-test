@@ -5,13 +5,12 @@ import { Footer } from '../../components/footer';
 import { Header } from '../../components/header';
 import { InputText } from '../../components/inputText';
 import { SelectBox } from '../../components/selectBox';
+import { apiService } from '../../services/apiService';
 import './styles.scss';
 
 
 export const AddProduct = () => {
-    const onSubmitSave = () => {
 
-    }
 
     const [sku, setSku] = useState("")
     const [skuError, setSkuError] = useState("")
@@ -32,10 +31,48 @@ export const AddProduct = () => {
     const [lengthError, setLengthError] = useState("")
 
     const [buttonDisabel, setbuttonDisabel] = useState(true)
-
+    const [displayError, setDisplayError] = useState(false)
 
     const [selectedIndex, setSelectedIndex] = useState(2)
     const options = ["DISC", "BOOK", "FURNITURE"]
+    const onSubmitSave = () => {
+        if (selectedIndex === 0) {
+            apiService.post("/addProduct.php", { sku, name, price, productType: "disc", size }).then((res) => {
+                if (res.status === 201 || res.status === 200) {
+                    window.location.href = "/product/list";
+                }
+                else {
+                    alert("message" + res.data)
+                }
+
+            }).catch((err) => {
+                alert(size)
+                console.log("size= ", size)
+                setDisplayError(true)
+            })
+        }
+        if (selectedIndex === 1) {
+            apiService.post("/addProduct.php", { sku, name, price, productType: "book", weight }).then((res) => {
+                if (res.status === 201 && res.data.status === "success") {
+                    window.location.href = "/product/list";
+                }
+
+            }).catch((err) => {
+                setDisplayError(true)
+            })
+        }
+        if (selectedIndex === 2) {
+            apiService.post("/addProduct.php", { sku, name, price, productType: "fourniture", height, width, length }).then((res) => {
+                if (res.status === 201) {
+                    window.location.href = "/product/list";
+                }
+
+
+            }).catch((err) => {
+                setDisplayError(true)
+            })
+        }
+    }
     useEffect(() => {
         if (sku && name && price) {
             if (selectedIndex === 0 && size) {
@@ -70,14 +107,16 @@ export const AddProduct = () => {
         <>
             <Header>
                 <div>
-                    <h1>Add Product</h1>
+                    <h1 id='title' >Add Product</h1>
                 </div>
+                <img src="/logo.png" alt="product" />
                 <div className='header-left'>
                     <MButton onClick={onSubmitSave} name="Save" disbaled={buttonDisabel} />
                 </div>
 
             </Header>
             <div className='add-product-container'>
+                {displayError && <h3 className='error'>SKU alerdy existe</h3>}
                 <InputText errorText={skuError} type='text' label="SKU :" value={sku} onChange={setSku} />
                 <InputText errorText={nameError} type='text' label="Name :" value={name} onChange={setName} />
                 <InputText errorText={priceError} type='number' label="Price :" value={price} onChange={setPrice} />

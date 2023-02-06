@@ -4,7 +4,7 @@
     flex-direction: column;
     gap:1rem;
     width:25rem;
-    
+    flex: 1;
     .add-product-container-top{
         display: flex;
         flex-direction: column;
@@ -15,5 +15,9 @@
     .select-dropdown{
         margin-left: 15rem;
         // width: 100%;
+    }
+
+    .error{
+        color: red;
     }
 }

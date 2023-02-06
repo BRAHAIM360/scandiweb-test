@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { IProduct } from '../../pages/listProducts';
 import './styles.scss';
 
+interface IProductCard extends IProduct {
+    setItemsToDelete: (items: any) => void;
+    itemsToDelete: any;
+}
 
-export const ProductCard = (props: any) => {
+
+export const ProductCard = (props: IProductCard) => {
     const [checked, setChecked] = useState(false)
+    useEffect(() => {
+        if (checked) {
+            props.setItemsToDelete([...props.itemsToDelete, props.sku])
+        } else {
+            props.setItemsToDelete(props.itemsToDelete.filter((item: any) => item !== props.sku))
+        }
+    }, [checked])
+
     return (
         <div className="ProductCard">
             <input type="checkbox" checked={checked} onChange={(e) => { setChecked(!checked) }} ></input>
@@ -13,6 +27,7 @@ export const ProductCard = (props: any) => {
             {props.productType === "disc" && <div>size: {props.size} MB</div>}
             {props.productType === "book" && <div>weight: {props.weight} KG</div>}
             {props.productType === "furniture" && <div>Dimension: {props.height}x{props.width}x{props.length}</div>}
+
         </div>
     );
 }

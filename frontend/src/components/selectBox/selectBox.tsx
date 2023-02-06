@@ -13,7 +13,7 @@ export const SelectBox = (props: ISelectBox) => {
             <select onChange={(e) => props.setSelected(parseInt(e.target.value))} value={props.selected}>
                 {props.options.map((option, index) => {
                     return (
-                        <option value={index} selected={index === props.selected}>
+                        <option key={option} value={index}>
                             {option}
                         </option>
                     );

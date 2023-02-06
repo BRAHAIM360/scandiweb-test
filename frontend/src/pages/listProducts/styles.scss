@@ -6,7 +6,7 @@
     justify-content: start;
     margin: 2rem auto;
     gap:1rem;
-
+    flex: 1;
     // max-width: 15rem;
     padding: 0 20px;
     margin: 3rem;
@@ -20,3 +20,17 @@
     gap: 3rem;
 
 }
+
+//media query 
+@media screen and (max-width: 768px) {
+    #title{
+        font-size: 1.2rem;
+
+    }
+    .header-left{
+
+        gap: 1rem;
+    
+    }
+}
+
