@@ -40,3 +40,14 @@
 	border-right: 5px solid transparent;
 	border-left: 5px solid transparent;
 }
+
+//media query phone
+@media screen and (max-width: 650px) {
+    .header{
+	.select-dropdown {
+     height: 2.1rem;
+	 width: 8.5rem;
+	 font-size: 0.6rem;
+    }
+}
+}

@@ -29,3 +29,13 @@
     cursor: not-allowed;
 
 }
+
+//media query phone
+@media screen and (max-width: 650px) {
+    .button{
+        height: 2rem;
+        font-size: 0.7rem;
+        width: 4.5rem;
+
+    }
+}
