@@ -36,7 +36,7 @@ if you want try it in production mode
 
 ```sh
 cd scandiweb-test
-docker-compose up -f docker-compose.prod.yml
+docker-compose  -f docker-compose.prod.yml up
 ```
 
 if you want try it in development mode
