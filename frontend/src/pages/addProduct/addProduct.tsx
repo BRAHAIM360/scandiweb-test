@@ -36,41 +36,35 @@ export const AddProduct = () => {
     const [selectedIndex, setSelectedIndex] = useState(2)
     const options = ["DISC", "BOOK", "FURNITURE"]
     const onSubmitSave = () => {
-        if (selectedIndex === 0) {
-            apiService.post("/addProduct.php", { sku, name, price, productType: "disc", size }).then((res) => {
-                if (res.status === 201 || res.status === 200) {
+        if (!buttonDisabel) {
+
+            if (selectedIndex === 0) {
+                apiService.post("/addProduct.php", { sku, name, price, productType: "disc", size }).then((res) => {
                     window.location.href = "/product/list";
-                }
-                else {
-                    alert("message" + res.data)
-                }
 
-            }).catch((err) => {
-                alert(size)
-                console.log("size= ", size)
-                setDisplayError(true)
-            })
-        }
-        if (selectedIndex === 1) {
-            apiService.post("/addProduct.php", { sku, name, price, productType: "book", weight }).then((res) => {
-                if (res.status === 201 && res.data.status === "success") {
+                }).catch((err) => {
+                    alert(size)
+                    console.log("size= ", size)
+                    setDisplayError(true)
+                })
+            }
+            if (selectedIndex === 1) {
+                apiService.post("/addProduct.php", { sku, name, price, productType: "book", weight }).then((res) => {
                     window.location.href = "/product/list";
-                }
 
-            }).catch((err) => {
-                setDisplayError(true)
-            })
-        }
-        if (selectedIndex === 2) {
-            apiService.post("/addProduct.php", { sku, name, price, productType: "fourniture", height, width, length }).then((res) => {
-                if (res.status === 201) {
+                }).catch((err) => {
+                    setDisplayError(true)
+                })
+            }
+            if (selectedIndex === 2) {
+                apiService.post("/addProduct.php", { sku, name, price, productType: "fourniture", height, width, length }).then((res) => {
                     window.location.href = "/product/list";
-                }
 
 
-            }).catch((err) => {
-                setDisplayError(true)
-            })
+                }).catch((err) => {
+                    setDisplayError(true)
+                })
+            }
         }
     }
     useEffect(() => {
@@ -109,7 +103,7 @@ export const AddProduct = () => {
                 <div>
                     <h1 id='title' >Add Product</h1>
                 </div>
-                <img src="/logo.png" alt="product" />
+                <img src="/logo.png" alt="product" onClick={() => window.location.href = "/"} />
                 <div className='header-left'>
                     <MButton onClick={onSubmitSave} name="Save" disbaled={buttonDisabel} />
                 </div>

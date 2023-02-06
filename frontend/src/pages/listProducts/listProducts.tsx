@@ -61,6 +61,8 @@ export const ListProducts = () => {
                 <div>
                     <h1 id="title" >List Products</h1>
                 </div>
+                <img src="/logo.png" alt="product" />
+
                 <div className='header-left'>
                     <SelectBox key='selectbox' options={options} selected={selectedIndex} setSelected={setSelectedIndex} />
                     <MButton onClick={onSubmitApply} name="APPLY" />
