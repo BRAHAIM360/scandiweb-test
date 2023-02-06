@@ -39,6 +39,8 @@ cd scandiweb-test
 docker-compose  -f docker-compose.prod.yml up
 ```
 
+The App will be available at <http://localhost:9000>
+
 if you want try it in development mode
 
 - Go to the project root:
