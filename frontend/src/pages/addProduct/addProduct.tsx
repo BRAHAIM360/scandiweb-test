@@ -33,12 +33,12 @@ export const AddProduct = () => {
     const [buttonDisabel, setbuttonDisabel] = useState(true)
     const [displayError, setDisplayError] = useState(false)
 
-    const [selectedIndex, setSelectedIndex] = useState(-1)
-    const options = ["DISC", "BOOK", "FURNITURE"]
+    const [selectedIndex, setSelectedIndex] = useState(0)
+    const options = ["", "DISC", "BOOK", "FURNITURE"]
     const onSubmitSave = () => {
         if (!buttonDisabel) {
 
-            if (selectedIndex === 0) {
+            if (selectedIndex === 1) {
                 apiService.post("/addProduct.php", { sku, name, price, productType: "disc", size }).then((res) => {
                     window.location.href = "/product/list";
 
@@ -48,7 +48,7 @@ export const AddProduct = () => {
                     setDisplayError(true)
                 })
             }
-            if (selectedIndex === 1) {
+            if (selectedIndex === 2) {
                 apiService.post("/addProduct.php", { sku, name, price, productType: "book", weight }).then((res) => {
                     window.location.href = "/product/list";
 
@@ -56,7 +56,7 @@ export const AddProduct = () => {
                     setDisplayError(true)
                 })
             }
-            if (selectedIndex === 2) {
+            if (selectedIndex === 3) {
                 apiService.post("/addProduct.php", { sku, name, price, productType: "fourniture", height, width, length }).then((res) => {
                     window.location.href = "/product/list";
 
@@ -69,11 +69,11 @@ export const AddProduct = () => {
     }
     useEffect(() => {
         if (sku && name && price) {
-            if (selectedIndex === 0 && size) {
+            if (selectedIndex === 1 && size) {
                 setbuttonDisabel(false)
-            } else if (selectedIndex === 1 && weight) {
+            } else if (selectedIndex === 2 && weight) {
                 setbuttonDisabel(false)
-            } else if (selectedIndex === 2 && height && width && length) {
+            } else if (selectedIndex === 3 && height && width && length) {
                 setbuttonDisabel(false)
             } else {
                 setbuttonDisabel(true)
@@ -109,14 +109,14 @@ export const AddProduct = () => {
                 </div>
 
             </Header>
-            <div className='#product_form'>
+            <form className='add-product-container' id='#product_form'>
                 {displayError && <h3 className='error'>SKU alerdy existe</h3>}
                 <InputText errorText={skuError} type='text' label="SKU :" value={sku} onChange={setSku} />
                 <InputText errorText={nameError} type='text' label="Name :" value={name} onChange={setName} />
                 <InputText errorText={priceError} type='number' label="Price :" value={price} onChange={setPrice} />
                 <SelectBox key="select" options={options} selected={selectedIndex} setSelected={setSelectedIndex} />
                 {
-                    selectedIndex === 0 &&
+                    selectedIndex === 1 &&
                     <>
                         <InputText key="Size" errorText={sizeError} type='number' label="Size :" value={size} onChange={setSize} />
                         <p>Please, provide size in MB</p>
@@ -124,14 +124,14 @@ export const AddProduct = () => {
                     </>
                 }
                 {
-                    selectedIndex === 1 &&
+                    selectedIndex === 2 &&
                     <>
                         <InputText key="Weight" errorText={weightError} type='number' label="Weight :" value={weight} onChange={setWeight} />
                         <p>Please provide Weight in KG </p>
                     </>
                 }
                 {
-                    selectedIndex === 2 &&
+                    selectedIndex === 3 &&
                     <>
                         <InputText key="Height" errorText={heightError} type='number' label="Height :" value={height} onChange={setHeight} />
                         <InputText key="Width" errorText={widthError} type='number' label="Width :" value={width} onChange={setWidth} />
@@ -141,7 +141,7 @@ export const AddProduct = () => {
                     </>
                 }
 
-            </div>
+            </form>
             <Footer />
         </>
     );

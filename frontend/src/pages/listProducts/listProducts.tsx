@@ -36,7 +36,7 @@ export const ListProducts = () => {
         }
         )
     }, [])
-    const onSubmitApply = () => {
+    const onSubmitMassDelete = () => {
         if (selectedIndex === 1) {
             window.location.href = "/product/new"
         }
@@ -50,7 +50,11 @@ export const ListProducts = () => {
             )
         }
     }
-    const [selectedIndex, setSelectedIndex] = useState(-1)
+    const onSubmitAdd = () => {
+        window.location.href = "/product/new"
+    }
+
+    const [selectedIndex, setSelectedIndex] = useState(0)
     const options = ["MASS DELETE", "ADD"]
 
 
@@ -65,8 +69,8 @@ export const ListProducts = () => {
 
                 <div className='header-left'>
                     {/* <SelectBox key='selectbox' options={options} selected={selectedIndex} setSelected={setSelectedIndex} /> */}
-                    <MButton id="ADD" onClick={onSubmitApply} name="add" />
-                    <MButton id="MASS DELETE" onClick={onSubmitApply} name="MASS DELETE" />
+                    <MButton id="ADD" onClick={onSubmitAdd} name="ADD" />
+                    <MButton id="MASS DELETE" onClick={onSubmitMassDelete} name="MASS DELETE" />
                 </div>
 
             </Header>
