@@ -109,6 +109,7 @@ export const AddProduct = () => {
                 </div>
 
             </Header>
+
             <form className='add-product-container' id='product_form'>
                 {displayError && <h3 className='error'>SKU alerdy existe</h3>}
                 <InputText id='sku' errorText={skuError} type='text' label="SKU :" value={sku} onChange={setSku} />
@@ -142,6 +143,7 @@ export const AddProduct = () => {
                 }
 
             </form>
+
             <Footer />
         </>
     );

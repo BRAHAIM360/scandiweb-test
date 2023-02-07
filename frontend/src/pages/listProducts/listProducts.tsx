@@ -37,25 +37,19 @@ export const ListProducts = () => {
         )
     }, [])
     const onSubmitMassDelete = () => {
-        if (selectedIndex === 1) {
-            window.location.href = "/product/new"
-        }
-        if (selectedIndex === 0) {
-            apiService.delete("/deleteProducts.php", { data: { skus: itemsToDelete } }).then((res) => {
-                apiService.get("/getProducts.php").then((res) => {
-                    setProducts(res.data.data)
-                }
-                )
+
+        apiService.delete("/deleteProducts.php", { data: { skus: itemsToDelete } }).then((res) => {
+            apiService.get("/getProducts.php").then((res) => {
+                setProducts(res.data.data)
             }
             )
         }
+        )
     }
     const onSubmitAdd = () => {
         window.location.href = "/product/new"
     }
 
-    const [selectedIndex, setSelectedIndex] = useState(0)
-    const options = ["MASS DELETE", "ADD"]
 
 
 

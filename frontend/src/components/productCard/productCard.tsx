@@ -24,7 +24,7 @@ export const ProductCard = (props: IProductCard) => {
             <div>{props.sku}</div>
             <div>{props.name}</div>
             <div>{props.price} $</div>
-            {props.productType === "Disc" && <div>Size: {props.size} MB</div>}
+            {props.productType === "DVD" && <div>Size: {props.size} MB</div>}
             {props.productType === "Book" && <div>Weight: {props.weight} KG</div>}
             {props.productType === "Furniture" && <div>Dimension: {props.height}x{props.width}x{props.length}</div>}
 
