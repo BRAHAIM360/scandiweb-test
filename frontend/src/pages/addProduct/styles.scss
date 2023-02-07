@@ -13,11 +13,27 @@
     }
 
     .select-dropdown{
+        
         margin-left: 15rem;
         // width: 100%;
+
     }
 
     .error{
         color: red;
+    }
+}
+
+//media query phone
+
+@media screen and (max-width: 650px) {
+    .add-product-container{
+  
+    
+        .select-dropdown{
+            width: 100%;
+        }
+    
+      
     }
 }
