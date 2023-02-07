@@ -11,8 +11,8 @@ interface ISelectBox {
 export const SelectBox = (props: ISelectBox) => {
     return (
 
-        <div className="select-dropdown" id={props.id}>
-            <select onChange={(e) => props.setSelected(parseInt(e.target.value))} value={props.selected}>
+        <div className="select-dropdown" >
+            <select id={props.id} onChange={(e) => props.setSelected(parseInt(e.target.value))} value={props.selected}>
                 {props.options.map((option, index) => {
                     return (
                         <option key={option} value={index}>

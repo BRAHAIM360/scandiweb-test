@@ -34,7 +34,7 @@ export const AddProduct = () => {
     const [displayError, setDisplayError] = useState(false)
 
     const [selectedIndex, setSelectedIndex] = useState(0)
-    const options = ["", "DVD", "BOOK", "FURNITURE"]
+    const options = ["", "DVD", "Book", "Furniture"]
     const onSubmitSave = () => {
         if (!buttonDisabel) {
 
