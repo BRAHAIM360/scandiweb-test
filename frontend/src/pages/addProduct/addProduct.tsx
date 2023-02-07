@@ -111,14 +111,14 @@ export const AddProduct = () => {
             </Header>
             <form className='add-product-container' id='#product_form'>
                 {displayError && <h3 className='error'>SKU alerdy existe</h3>}
-                <InputText errorText={skuError} type='text' label="SKU :" value={sku} onChange={setSku} />
-                <InputText errorText={nameError} type='text' label="Name :" value={name} onChange={setName} />
-                <InputText errorText={priceError} type='number' label="Price :" value={price} onChange={setPrice} />
-                <SelectBox key="select" options={options} selected={selectedIndex} setSelected={setSelectedIndex} />
+                <InputText id='sku' errorText={skuError} type='text' label="SKU :" value={sku} onChange={setSku} />
+                <InputText id='name' errorText={nameError} type='text' label="Name :" value={name} onChange={setName} />
+                <InputText id='price' errorText={priceError} type='number' label="Price :" value={price} onChange={setPrice} />
+                <SelectBox id='productType' key="select" options={options} selected={selectedIndex} setSelected={setSelectedIndex} />
                 {
                     selectedIndex === 1 &&
                     <>
-                        <InputText key="Size" errorText={sizeError} type='number' label="Size :" value={size} onChange={setSize} />
+                        <InputText id='' key="Size" errorText={sizeError} type='number' label="Size :" value={size} onChange={setSize} />
                         <p>Please, provide size in MB</p>
 
                     </>
@@ -126,16 +126,16 @@ export const AddProduct = () => {
                 {
                     selectedIndex === 2 &&
                     <>
-                        <InputText key="Weight" errorText={weightError} type='number' label="Weight :" value={weight} onChange={setWeight} />
+                        <InputText id='' key="Weight" errorText={weightError} type='number' label="Weight :" value={weight} onChange={setWeight} />
                         <p>Please provide Weight in KG </p>
                     </>
                 }
                 {
                     selectedIndex === 3 &&
                     <>
-                        <InputText key="Height" errorText={heightError} type='number' label="Height :" value={height} onChange={setHeight} />
-                        <InputText key="Width" errorText={widthError} type='number' label="Width :" value={width} onChange={setWidth} />
-                        <InputText key="Length" errorText={lengthError} type='number' label="Length :" value={length} onChange={setLength} />
+                        <InputText id='' key="Height" errorText={heightError} type='number' label="Height :" value={height} onChange={setHeight} />
+                        <InputText id='' key="Width" errorText={widthError} type='number' label="Width :" value={width} onChange={setWidth} />
+                        <InputText id='' key="Length" errorText={lengthError} type='number' label="Length :" value={length} onChange={setLength} />
                         <p>Please provide dimensions in HxWxL in CM</p>
 
                     </>
