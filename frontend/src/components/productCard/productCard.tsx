@@ -20,7 +20,7 @@ export const ProductCard = (props: IProductCard) => {
 
     return (
         <div className="ProductCard">
-            <input type="checkbox" checked={checked} onChange={(e) => { setChecked(!checked) }} ></input>
+            <input type="checkbox" className='delete-checkbox' checked={checked} onChange={(e) => { setChecked(!checked) }} ></input>
             <div>{props.sku}</div>
             <div>{props.name}</div>
             <div>{props.price} $</div>
