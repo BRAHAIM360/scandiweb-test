@@ -126,16 +126,16 @@ export const AddProduct = () => {
                 {
                     selected === "Book" &&
                     <>
-                        <InputText id='' key="Weight" errorText={weightError} type='number' label="Weight(KG) :" value={weight} onChange={setWeight} />
+                        <InputText id='weight' key="Weight" errorText={weightError} type='number' label="Weight(KG) :" value={weight} onChange={setWeight} />
                         <p>Please provide Weight in KG </p>
                     </>
                 }
                 {
                     selected === "Furniture" &&
                     <>
-                        <InputText id='' key="Height" errorText={heightError} type='number' label="Height(CM) :" value={height} onChange={setHeight} />
-                        <InputText id='' key="Width" errorText={widthError} type='number' label="Width(CM) :" value={width} onChange={setWidth} />
-                        <InputText id='' key="Length" errorText={lengthError} type='number' label="Length(CM) :" value={length} onChange={setLength} />
+                        <InputText id='height' key="Height" errorText={heightError} type='number' label="Height(CM) :" value={height} onChange={setHeight} />
+                        <InputText id='width' key="Width" errorText={widthError} type='number' label="Width(CM) :" value={width} onChange={setWidth} />
+                        <InputText id='length' key="Length" errorText={lengthError} type='number' label="Length(CM) :" value={length} onChange={setLength} />
                         <p>Please provide dimensions in HxWxL in CM</p>
 
                     </>
