@@ -33,7 +33,7 @@ export const AddProduct = () => {
     const [buttonDisabel, setbuttonDisabel] = useState(true)
     const [displayError, setDisplayError] = useState(false)
 
-    const [selectedIndex, setSelectedIndex] = useState(2)
+    const [selectedIndex, setSelectedIndex] = useState(-1)
     const options = ["DISC", "BOOK", "FURNITURE"]
     const onSubmitSave = () => {
         if (!buttonDisabel) {
@@ -105,11 +105,11 @@ export const AddProduct = () => {
                 </div>
                 <img src="/logo.png" alt="product" onClick={() => window.location.href = "/"} />
                 <div className='header-left'>
-                    <MButton onClick={onSubmitSave} name="Save" disbaled={buttonDisabel} />
+                    <MButton id={""} onClick={onSubmitSave} name="Save" disbaled={buttonDisabel} />
                 </div>
 
             </Header>
-            <div className='add-product-container'>
+            <div className='#product_form'>
                 {displayError && <h3 className='error'>SKU alerdy existe</h3>}
                 <InputText errorText={skuError} type='text' label="SKU :" value={sku} onChange={setSku} />
                 <InputText errorText={nameError} type='text' label="Name :" value={name} onChange={setName} />

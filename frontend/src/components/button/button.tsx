@@ -5,11 +5,12 @@ interface IButton {
     name: string;
     onClick: () => void;
     disbaled?: boolean;
+    id: string;
 }
 
 export const MButton = (props: IButton) => {
     return (
-        <button type="button" className={props.disbaled ? 'button disabled' : "button"} onClick={props.onClick}>{props.name}</button>
+        <button id={props.id} type="button" className={props.disbaled ? 'button disabled' : "button"} onClick={props.onClick}>{props.name}</button>
     );
 }
 

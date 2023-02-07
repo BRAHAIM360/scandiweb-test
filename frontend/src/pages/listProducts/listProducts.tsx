@@ -50,7 +50,7 @@ export const ListProducts = () => {
             )
         }
     }
-    const [selectedIndex, setSelectedIndex] = useState(0)
+    const [selectedIndex, setSelectedIndex] = useState(-1)
     const options = ["MASS DELETE", "ADD"]
 
 
@@ -64,8 +64,9 @@ export const ListProducts = () => {
                 <img src="/logo.png" alt="product" />
 
                 <div className='header-left'>
-                    <SelectBox key='selectbox' options={options} selected={selectedIndex} setSelected={setSelectedIndex} />
-                    <MButton onClick={onSubmitApply} name="APPLY" />
+                    {/* <SelectBox key='selectbox' options={options} selected={selectedIndex} setSelected={setSelectedIndex} /> */}
+                    <MButton id="ADD" onClick={onSubmitApply} name="add" />
+                    <MButton id="MASS DELETE" onClick={onSubmitApply} name="MASS DELETE" />
                 </div>
 
             </Header>
