@@ -114,7 +114,7 @@ export const AddProduct = () => {
                 <InputText id='sku' errorText={skuError} type='text' label="SKU :" value={sku} onChange={setSku} />
                 <InputText id='name' errorText={nameError} type='text' label="Name :" value={name} onChange={setName} />
                 <InputText id='price' errorText={priceError} type='number' label="Price($) :" value={price} onChange={setPrice} />
-                <SelectBox id='productType' key="select" options={options} selected={selected} setSelected={setSelected} />
+                <SelectBox id='productType' key="select" label='ProductType :' options={options} selected={selected} setSelected={setSelected} />
                 {
                     selected === "DVD" &&
                     <>

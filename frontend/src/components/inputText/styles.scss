@@ -26,3 +26,24 @@
 .errorText{
   color  : red;
 }
+
+//media query phone
+@media screen and (max-width: 650px) {
+        
+        .input-text{
+            position: relative;
+            justify-content: flex-start;
+            width: 100vw;
+            .input-text__label{
+            font-size: 1.2rem;
+            width: 30%;
+            
+           }
+           .input-text__input{
+            // width:fit
+            width: 40%;
+           }
+        }
+    // }
+
+} 
