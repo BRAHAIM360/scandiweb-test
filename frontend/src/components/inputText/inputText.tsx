@@ -13,9 +13,9 @@ interface IInputText {
 export const InputText = (props: IInputText) => {
     return (
         <>
-            <div className='input-text' id={props.id}>
+            <div className='input-text' >
                 <span className='input-text__label'>{props.label}</span>
-                <input type={props.type} className='input-text__input' value={props.value} onChange={(e) => props.onChange(e.target.value)} />
+                <input id={props.id} type={props.type} className='input-text__input' value={props.value} onChange={(e) => props.onChange(e.target.value)} />
             </div>
             {
                 props.errorText && <div className='errorText' >{props.errorText}</div>

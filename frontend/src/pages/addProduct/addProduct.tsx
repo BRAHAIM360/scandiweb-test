@@ -34,7 +34,7 @@ export const AddProduct = () => {
     const [displayError, setDisplayError] = useState(false)
 
     const [selectedIndex, setSelectedIndex] = useState(0)
-    const options = ["", "DISC", "BOOK", "FURNITURE"]
+    const options = ["", "DVD", "BOOK", "FURNITURE"]
     const onSubmitSave = () => {
         if (!buttonDisabel) {
 
@@ -105,11 +105,11 @@ export const AddProduct = () => {
                 </div>
                 <img src="/logo.png" alt="product" onClick={() => window.location.href = "/"} />
                 <div className='header-left'>
-                    <MButton id={""} onClick={onSubmitSave} name="Save" disbaled={buttonDisabel} />
+                    <MButton id={"Save"} onClick={onSubmitSave} name="Save" disbaled={buttonDisabel} />
                 </div>
 
             </Header>
-            <form className='add-product-container' id='#product_form'>
+            <form className='add-product-container' id='product_form'>
                 {displayError && <h3 className='error'>SKU alerdy existe</h3>}
                 <InputText id='sku' errorText={skuError} type='text' label="SKU :" value={sku} onChange={setSku} />
                 <InputText id='name' errorText={nameError} type='text' label="Name :" value={name} onChange={setName} />
@@ -118,7 +118,7 @@ export const AddProduct = () => {
                 {
                     selectedIndex === 1 &&
                     <>
-                        <InputText id='' key="Size" errorText={sizeError} type='number' label="Size :" value={size} onChange={setSize} />
+                        <InputText id='size' key="Size" errorText={sizeError} type='number' label="Size :" value={size} onChange={setSize} />
                         <p>Please, provide size in MB</p>
 
                     </>
