@@ -3,7 +3,6 @@
 //Headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Content-Type: application/json');
 header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Headers: X-Requested-With');
 
