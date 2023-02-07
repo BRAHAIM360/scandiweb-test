@@ -35,7 +35,7 @@ class Disc extends Product
         name = :name,
         price = :price,
         size = :size, 
-        productType = "disc" 
+        productType = "DVD" 
         ';
 
     //prepare statement

@@ -54,7 +54,7 @@ if (!$data->price) {
 
 
 if (property_exists($data, 'size')) {
-    echo "size";
+    // echo "size";
     $Disc = new Disc($db);
     $Disc->add($data);
     return;

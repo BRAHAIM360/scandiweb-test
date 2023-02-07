@@ -33,13 +33,13 @@ export const AddProduct = () => {
     const [buttonDisabel, setbuttonDisabel] = useState(true)
     const [displayError, setDisplayError] = useState(false)
 
-    const [selectedIndex, setSelectedIndex] = useState(0)
+    const [selected, setSelected] = useState("")
     const options = ["", "DVD", "Book", "Furniture"]
     const onSubmitSave = () => {
         if (!buttonDisabel) {
 
-            if (selectedIndex === 1) {
-                apiService.post("/addProduct.php", { sku, name, price, productType: "disc", size }).then((res) => {
+            if (selected === "DVD") {
+                apiService.post("/addProduct.php", { sku, name, price, productType: "DVD", size }).then((res) => {
                     window.location.href = "/product/list";
 
                 }).catch((err) => {
@@ -48,16 +48,16 @@ export const AddProduct = () => {
                     setDisplayError(true)
                 })
             }
-            if (selectedIndex === 2) {
-                apiService.post("/addProduct.php", { sku, name, price, productType: "book", weight }).then((res) => {
+            if (selected === "Book") {
+                apiService.post("/addProduct.php", { sku, name, price, productType: "Book", weight }).then((res) => {
                     window.location.href = "/product/list";
 
                 }).catch((err) => {
                     setDisplayError(true)
                 })
             }
-            if (selectedIndex === 3) {
-                apiService.post("/addProduct.php", { sku, name, price, productType: "fourniture", height, width, length }).then((res) => {
+            if (selected === "Furniture") {
+                apiService.post("/addProduct.php", { sku, name, price, productType: "Furniture", height, width, length }).then((res) => {
                     window.location.href = "/product/list";
 
 
@@ -69,11 +69,11 @@ export const AddProduct = () => {
     }
     useEffect(() => {
         if (sku && name && price) {
-            if (selectedIndex === 1 && size) {
+            if (selected === "DVD" && size) {
                 setbuttonDisabel(false)
-            } else if (selectedIndex === 2 && weight) {
+            } else if (selected === "Book" && weight) {
                 setbuttonDisabel(false)
-            } else if (selectedIndex === 3 && height && width && length) {
+            } else if (selected === "Furniture" && height && width && length) {
                 setbuttonDisabel(false)
             } else {
                 setbuttonDisabel(true)
@@ -91,7 +91,7 @@ export const AddProduct = () => {
         !height ? setHeightError("Height should not be empty") : setHeightError("")
         !width ? setWidthError("Width should not be empty") : setWidthError("")
         !length ? setLengthError("Length should not be empty") : setLengthError("")
-    }, [sku, name, price, size, weight, height, width, length, selectedIndex])
+    }, [sku, name, price, size, weight, height, width, length, selected])
 
 
 
@@ -113,29 +113,29 @@ export const AddProduct = () => {
                 {displayError && <h3 className='error'>SKU alerdy existe</h3>}
                 <InputText id='sku' errorText={skuError} type='text' label="SKU :" value={sku} onChange={setSku} />
                 <InputText id='name' errorText={nameError} type='text' label="Name :" value={name} onChange={setName} />
-                <InputText id='price' errorText={priceError} type='number' label="Price :" value={price} onChange={setPrice} />
-                <SelectBox id='productType' key="select" options={options} selected={selectedIndex} setSelected={setSelectedIndex} />
+                <InputText id='price' errorText={priceError} type='number' label="Price($) :" value={price} onChange={setPrice} />
+                <SelectBox id='productType' key="select" options={options} selected={selected} setSelected={setSelected} />
                 {
-                    selectedIndex === 1 &&
+                    selected === "DVD" &&
                     <>
-                        <InputText id='size' key="Size" errorText={sizeError} type='number' label="Size :" value={size} onChange={setSize} />
+                        <InputText id='size' key="Size" errorText={sizeError} type='number' label="Size(MB) :" value={size} onChange={setSize} />
                         <p>Please, provide size in MB</p>
 
                     </>
                 }
                 {
-                    selectedIndex === 2 &&
+                    selected === "Book" &&
                     <>
-                        <InputText id='' key="Weight" errorText={weightError} type='number' label="Weight :" value={weight} onChange={setWeight} />
+                        <InputText id='' key="Weight" errorText={weightError} type='number' label="Weight(KG) :" value={weight} onChange={setWeight} />
                         <p>Please provide Weight in KG </p>
                     </>
                 }
                 {
-                    selectedIndex === 3 &&
+                    selected === "Furniture" &&
                     <>
-                        <InputText id='' key="Height" errorText={heightError} type='number' label="Height :" value={height} onChange={setHeight} />
-                        <InputText id='' key="Width" errorText={widthError} type='number' label="Width :" value={width} onChange={setWidth} />
-                        <InputText id='' key="Length" errorText={lengthError} type='number' label="Length :" value={length} onChange={setLength} />
+                        <InputText id='' key="Height" errorText={heightError} type='number' label="Height(CM) :" value={height} onChange={setHeight} />
+                        <InputText id='' key="Width" errorText={widthError} type='number' label="Width(CM) :" value={width} onChange={setWidth} />
+                        <InputText id='' key="Length" errorText={lengthError} type='number' label="Length(CM) :" value={length} onChange={setLength} />
                         <p>Please provide dimensions in HxWxL in CM</p>
 
                     </>

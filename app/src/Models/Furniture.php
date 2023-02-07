@@ -49,7 +49,7 @@ class Furniture extends Product
         width = :width,
         height = :height,
         length = :length,
-        productType = "furniture"
+        productType = "Furniture"
         ';
 
     //prepare statement

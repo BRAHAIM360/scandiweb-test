@@ -25,7 +25,7 @@ class Book extends Product
         name = :name, 
         price = :price, 
         weight = :weight,
-        productType = "book"
+        productType = "Book"
          ';
 
     //prepare statement

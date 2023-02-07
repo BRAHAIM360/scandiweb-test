@@ -3,8 +3,8 @@ import './styles.scss';
 
 interface ISelectBox {
     options: string[];
-    selected: number;
-    setSelected: (index: number) => void;
+    selected: string;
+    setSelected: (val: string) => void;
     id?: string;
 }
 
@@ -12,10 +12,10 @@ export const SelectBox = (props: ISelectBox) => {
     return (
 
         <div className="select-dropdown" >
-            <select id={props.id} onChange={(e) => props.setSelected(parseInt(e.target.value))} value={props.selected}>
-                {props.options.map((option, index) => {
+            <select id={props.id} onChange={(e) => props.setSelected(e.target.value)} value={props.selected}>
+                {props.options.map((option) => {
                     return (
-                        <option key={option} value={index}>
+                        <option key={option} value={option}>
                             {option}
                         </option>
                     );

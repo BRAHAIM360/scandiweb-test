@@ -50,18 +50,18 @@ ALTER TABLE `products`
 --
 
 INSERT INTO `products` (`sku`, `name`, `price`, `size`, `weight`, `height`, `width`, `length`, `productType`) VALUES
-('DRZEE43', 'Office table', 200, NULL, NULL, 22, 44, 12, 'furniture'),
-('DRZEE45', 'CHAIR', 200, NULL, NULL, 22, 4, 12, 'furniture'),
-('ISBN34534', 'Harry Portter', 200, NULL, 1.2, NULL, NULL, NULL, 'book'),
-('JVC2012', 'Harry potter Movie', 100, 450, NULL, NULL, NULL, NULL, 'disc'),
-('JVC22025', 'Windows 11', 200, 550, NULL, NULL, NULL, NULL, 'disc'),
-('TSSDZDZ', 'The witcher 3', 1000, 542, NULL, NULL, NULL, NULL, 'disc');
-('TSSDZER', 'Rainbow Six Sieg', 1000, 542, NULL, NULL, NULL, NULL, 'disc');
-('TSSDZF12', 'One Piece game', 1000, 542, NULL, NULL, NULL, NULL, 'disc');
-('DRZEE435', 'Office disk', 500, NULL, NULL, 22, 4, 12, 'furniture'),
-('DRZEE85', 'Pc Case', 2700, NULL, NULL, 22, 4, 12, 'furniture'),
-('ISBN34534', '5 love languages', 200, NULL, 1.2, NULL, NULL, NULL, 'book'),
-('ISBN34994', 'The Miracle Morning', 200, NULL, 1.2, NULL, NULL, NULL, 'book'),
+('DRZEE43', 'Office table', 200, NULL, NULL, 22, 44, 12, 'Furniture'),
+('DRZEE45', 'CHAIR', 200, NULL, NULL, 22, 4, 12, 'Furniture'),
+('ISBN34534', 'Harry Portter', 200, NULL, 1.2, NULL, NULL, NULL, 'Book'),
+('JVC2012', 'Harry potter Movie', 100, 450, NULL, NULL, NULL, NULL, 'DVD'),
+('JVC22025', 'Windows 11', 200, 550, NULL, NULL, NULL, NULL, 'DVD'),
+('TSSDZDZ', 'The witcher 3', 1000, 542, NULL, NULL, NULL, NULL, 'DVD');
+('TSSDZER', 'Rainbow Six Sieg', 1000, 542, NULL, NULL, NULL, NULL, 'DVD');
+('TSSDZF12', 'One Piece game', 1000, 542, NULL, NULL, NULL, NULL, 'DVD');
+('DRZEE435', 'Office disk', 500, NULL, NULL, 22, 4, 12, 'Furniture'),
+('DRZEE85', 'Pc Case', 2700, NULL, NULL, 22, 4, 12, 'Furniture'),
+('ISBN34534', '5 love languages', 200, NULL, 1.2, NULL, NULL, NULL, 'Book'),
+('ISBN34994', 'The Miracle Morning', 200, NULL, 1.2, NULL, NULL, NULL, 'Book'),
 
 
 --
