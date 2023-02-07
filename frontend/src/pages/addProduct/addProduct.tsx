@@ -67,6 +67,11 @@ export const AddProduct = () => {
             }
         }
     }
+
+
+    const onSubmitCancel = () => {
+        window.location.href = "/product/list";
+    }
     useEffect(() => {
         if (sku && name && price) {
             if (selected === "DVD" && size) {
@@ -106,6 +111,7 @@ export const AddProduct = () => {
                 <img src="/logo.png" alt="product" onClick={() => window.location.href = "/"} />
                 <div className='header-left'>
                     <MButton id={"Save"} onClick={onSubmitSave} name="Save" disbaled={buttonDisabel} />
+                    <MButton id={"Cancel"} onClick={onSubmitCancel} name="Cancel" />
                 </div>
 
             </Header>
