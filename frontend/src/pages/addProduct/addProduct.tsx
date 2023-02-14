@@ -39,7 +39,7 @@ export const AddProduct = () => {
         if (!buttonDisabel) {
 
             if (selected === "DVD") {
-                apiService.post("/addProduct.php", { sku, name, price, productType: "DVD", size }).then((res) => {
+                apiService.post("/product/saveApi/", { sku, name, price, productType: "DVD", size }).then((res) => {
                     window.location.href = "/product/list";
 
                 }).catch((err) => {
@@ -49,7 +49,7 @@ export const AddProduct = () => {
                 })
             }
             if (selected === "Book") {
-                apiService.post("/addProduct.php", { sku, name, price, productType: "Book", weight }).then((res) => {
+                apiService.post("/product/saveApi/", { sku, name, price, productType: "Book", weight }).then((res) => {
                     window.location.href = "/product/list";
 
                 }).catch((err) => {
@@ -57,7 +57,7 @@ export const AddProduct = () => {
                 })
             }
             if (selected === "Furniture") {
-                apiService.post("/addProduct.php", { sku, name, price, productType: "Furniture", height, width, length }).then((res) => {
+                apiService.post("/product/saveApi/", { sku, name, price, productType: "Furniture", height, width, length }).then((res) => {
                     window.location.href = "/product/list";
 
 

@@ -30,7 +30,7 @@ export const ListProducts = () => {
         console.log(itemsToDelete)
     }, [itemsToDelete])
     useEffect(() => {
-        apiService.get("/getProducts.php").then((res) => {
+        apiService.get("/product/get/").then((res) => {
             setProducts(res.data.data)
             console.log(res.data.data)
         }
@@ -38,8 +38,8 @@ export const ListProducts = () => {
     }, [])
     const onSubmitMassDelete = () => {
 
-        apiService.delete("/deleteProducts.php", { data: { skus: itemsToDelete } }).then((res) => {
-            apiService.get("/getProducts.php").then((res) => {
+        apiService.delete("/product/delete", { data: { skus: itemsToDelete } }).then((res) => {
+            apiService.get("/product/get/").then((res) => {
                 setProducts(res.data.data)
             }
             )
