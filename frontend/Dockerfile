@@ -10,7 +10,7 @@ RUN yarn install
 # Copy app files
 COPY . .
 
-ENV REACT_APP_API_HOST="/api/"
+ENV REACT_APP_API_HOST="/"
 
 # Build the app
 RUN yarn build
@@ -20,7 +20,7 @@ RUN yarn build
 # Bundle static assets with nginx
 FROM nginx:1.21.0-alpine as production
 ENV NODE_ENV production
-ENV REACT_APP_API_HOST="/api/"
+ENV REACT_APP_API_HOST="/"
 ## Remove default nginx index page
 RUN rm -rf /usr/share/nginx/html/*
 
