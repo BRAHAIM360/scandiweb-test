@@ -38,7 +38,7 @@ export const ListProducts = () => {
     }, [])
     const onSubmitMassDelete = () => {
 
-        apiService.delete("/product/delete", { data: { skus: itemsToDelete } }).then((res) => {
+        apiService.delete("/product/delete/", { data: { skus: itemsToDelete } }).then((res) => {
             apiService.get("/product/get/").then((res) => {
                 setProducts(res.data.data)
             }
